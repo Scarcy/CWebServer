@@ -112,3 +112,4 @@ It will then handle the outward communication with the connected clients.
   - Request URL/Path String.
   - RouteHandler function pointer accociated with the Route.
   - Maybe a HTML file that is returned.
+
