@@ -7,6 +7,9 @@
   - [Routing](#routing)
     - [RoutingManager](#routingmanager)
     - [Route Mapping](#route-mapping)
+  - [HTTP](#http)
+    - [Easiest first implementation](#easiest-first-implementation)
+    - [Harder solutions](#harder-solutions)
   - [Server](#server)
     - [HttpResponses](#httpresponses)
   - [Structs](#structs)
@@ -62,6 +65,21 @@ RouteMapper that checks the URL Path and sees if it matches a
 registered route. If there's no match,
 return 404 and maybe return a default NotFound page.
 
+## HTTP
+
+There's many ways to implement the HTTP and I'm not sure which one I'll implement.
+
+### Easiest first implementation
+
+The easiest thing would be to make `.http` files.
+Create http files, name matching the http route.
+Read the contents into char buffers and memcpy into HttpResponseBody.
+
+### Harder solutions
+
+To be able to support dynamic web sites I need to come up with ways to generate HTML.
+Could iteratively snprintf strings into a buffer.
+
 ## Server
 
 - [ ] Initialise Socket
@@ -112,4 +130,3 @@ It will then handle the outward communication with the connected clients.
   - Request URL/Path String.
   - RouteHandler function pointer accociated with the Route.
   - Maybe a HTML file that is returned.
-
