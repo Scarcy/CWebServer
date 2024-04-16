@@ -2,7 +2,7 @@
 #include <pthread.h>
 #include <stdio.h>
 #define NOT_IMPLEMENTED                                                        \
-  (printf("Function: %s is not implemented. - %s:%d", __func__, __FILE__,      \
+  (printf("Function: %s is not implemented. - %s:%d\n", __func__, __FILE__,    \
           __LINE__))
 // The Thread Pool Work Queue.
 struct tpool_work {

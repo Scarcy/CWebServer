@@ -29,6 +29,10 @@
   - [ ] Create
   - [ ] Destroy
 - [ ] Task Queue
+- [ ] Since we want the threads to check routes after creation:
+  - I need to find a way to do that without compromising it's extendability.
+  - If I directly check the route from the threadpool library,
+  it will be tightly coupled to the server code.
 
 ### Pseudo Steps for Using Thread Pool
 
