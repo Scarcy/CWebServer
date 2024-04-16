@@ -13,6 +13,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_definitions(-DDEBUG)
 add_executable(${CMAKE_PROJECT_NAME} main.c)
 
+set_target_properties(${CMAKE_PROJECT_NAME}
+PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+
 # Sets a compiler flag for when in debug mode
 # Can then check for debug mode with a macro. THIS DOES NOT WORK :(
 # target_compile_definitions(${CMAKE_PROJECT_NAME}
@@ -22,4 +25,5 @@ add_subdirectory(src)
 
 target_link_libraries(${CMAKE_PROJECT_NAME}
 PUBLIC threadpool
+PRIVATE server
 PRIVATE ellefsen_debug)
