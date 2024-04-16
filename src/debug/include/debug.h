@@ -13,8 +13,8 @@
 
 #ifdef DEBUG
 #define DEBUG_PRINT(fmt, ...)                                                  \
-  fprintf(stderr, "Debug: %s:%d:%s(): " fmt, __FILE__, __LINE__, __func__,     \
-          ##__VA_ARGS__)
+  fprintf(stderr, "Debug: %s: Line %d: %s(): " fmt, __FILE_NAME__, __LINE__,   \
+          __func__, ##__VA_ARGS__)
 #else
 #define DEBUG_PRINT(fmt, ...) (void)0
 #endif
@@ -24,9 +24,16 @@
 // A problem with multi function call macros is that it can break depending on
 // the context it's used. With the do/while(0) we wrap the entire Macro in a
 // codeblock, making it safe no matter where the macro is used
-#define NOT_IMPLEMENTED()                                                      \
+#define NOT_IMPLEMENTED(type)                                                  \
   do {                                                                         \
-    fprintf(stderr, "%s : %s  -  Not Implemented Yet :)\n", __FILE__,          \
+    fprintf(stderr, "%s : %s() - Not Implemented Yet :)\n", __FILE_NAME__,     \
+            __func__);                                                         \
+    return (type){0};                                                          \
+  } while (0)
+
+#define NOT_IMPLEMENTED_VOID()                                                 \
+  do {                                                                         \
+    fprintf(stderr, "%s : %s() - Not Implemented Yet :)\n", __FILE_NAME__,     \
             __func__);                                                         \
     return;                                                                    \
   } while (0)

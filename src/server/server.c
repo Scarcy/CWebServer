@@ -9,7 +9,7 @@
 #include <time.h>
 #include <unistd.h>
 void init(size_t port) {
-  NOT_IMPLEMENTED();
+  NOT_IMPLEMENTED_VOID();
   struct sockaddr_in serverAddress;
   serverAddress.sin_family = AF_INET;
   serverAddress.sin_port = htons(port);
